@@ -8,7 +8,6 @@ st.title("🖼️ Google Gemini Image Generator")
 
 # --- API key securely (from env var or Streamlit secrets)
 api_key = st.secrets.get("GEMINI_API_KEY", None)
-# api_key = "AIzaSyB_baIfTrNbZPtQBTy1RAjxy0T8HMaCkoI"
 if not api_key:
     st.error("❌ API key not found. Please set GEMINI_API_KEY in your environment or Streamlit secrets.")
     st.stop()
