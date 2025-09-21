@@ -45,7 +45,7 @@ if st.button("Generate Image"):
                 }
                 
                 # Generate the images
-                response = client.generate_images(
+                response = client.models.generate_images(
                     model=model,
                     prompt=prompt,
                     generation_config=generation_config
