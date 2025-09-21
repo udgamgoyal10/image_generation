@@ -1,6 +1,5 @@
 import streamlit as st
-from google import genai
-from google.genai import types
+import google.generativeai as genai
 from PIL import Image
 from io import BytesIO
 
@@ -39,12 +38,16 @@ if st.button("Generate Image"):
     else:
         try:
             with st.spinner("Generating image..."):
-                response = client.models.generate_images(
+                # Configure the generation parameters
+                generation_config = {
+                    "number_of_images": num_images,
+                }
+                
+                # Generate the images
+                response = client.generate_images(
                     model=model,
                     prompt=prompt,
-                    config=types.GenerateImagesConfig(
-                        number_of_images=num_images,
-                    )
+                    generation_config=generation_config
                 )
 
                 if response.generated_images:
