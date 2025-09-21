@@ -3,7 +3,9 @@ from google import genai
 from google.genai import types
 from PIL import Image
 from io import BytesIO
+from pprint import pprint
 
+pprint(types.GenerateImagesConfig.model_fields)              # lists allowed fields + types
 st.title("🖼️ Google Gemini Image Generator")
 
 # --- API key securely (from env var or Streamlit secrets)
@@ -29,6 +31,26 @@ model = st.selectbox(
     ]
 )
 
+sampleImageSize = st.selectbox(
+    "Select image quality:",
+    [
+        "1K",
+        "2K"
+    ]
+)
+
+aspectRatio = st.selectbox(
+    "Select aspect ratio:",
+    [
+        "1:1", 
+        "3:4",
+        "4:3",
+        "9:16",
+        "16:9"
+    ]
+)
+
+
 # --- Number of images
 num_images = st.slider("Number of images", 1, 4, 1)
 
@@ -45,6 +67,8 @@ if st.button("Generate Image"):
                     prompt=prompt,
                     config=types.GenerateImagesConfig(
                         number_of_images= num_images,
+                        image_size=sampleImageSize,
+                        aspect_ratio=aspectRatio
                     )
                 )
 
