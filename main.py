@@ -33,19 +33,21 @@ model = st.selectbox(
 sampleImageSize = st.selectbox(
     "Select image quality:",
     [
-        "1K",
-        "2K"
+        "2K",
+        "1K"
+        
     ]
 )
 
 aspectRatio = st.selectbox(
     "Select aspect ratio:",
     [
+        "16:9",
         "1:1", 
         "3:4",
         "4:3",
-        "9:16",
-        "16:9"
+        "9:16"
+        
     ]
 )
 
