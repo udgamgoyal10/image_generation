@@ -3,9 +3,8 @@ from google import genai
 from google.genai import types
 from PIL import Image
 from io import BytesIO
-from pprint import pprint
 
-pprint(types.GenerateImagesConfig.model_fields)              # lists allowed fields + types
+
 st.title("🖼️ Google Gemini Image Generator")
 
 # --- API key securely (from env var or Streamlit secrets)
