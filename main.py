@@ -39,16 +39,13 @@ if st.button("Generate Image"):
     else:
         try:
             with st.spinner("Generating image..."):
-                # Configure the generation parameters
-                generation_config = {
-                    "number_of_images": num_images,
-                }
-                
                 # Generate the images
                 response = client.models.generate_images(
                     model=model,
                     prompt=prompt,
-                    generation_config=generation_config
+                    config=types.GenerateImagesConfig(
+                        number_of_images= num_images,
+                    )
                 )
 
                 if response.generated_images:
