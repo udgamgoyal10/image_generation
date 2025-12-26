@@ -14,6 +14,7 @@ ENV PYTHONUNBUFFERED=1 \
 COPY packages.txt .
 RUN apt-get update && \
     xargs -a packages.txt apt-get install -y && \
+    apt-get install -y curl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
