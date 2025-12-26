@@ -28,6 +28,11 @@ ENV/
 # Streamlit
 .streamlit/secrets.toml
 
+# Docker & Environment
+.env
+.env.local
+.env.*.local
+
 # IDE
 .idea/
 .vscode/
